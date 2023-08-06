@@ -1,5 +1,5 @@
-name: github-actions-composite-template
-description: GitHub Actions Composite Template
+name: commitlint
+description: Lint commit messages with GitHub Actions.
 author: remarkablemark
 inputs:
   version:
@@ -12,5 +12,5 @@ runs:
         echo 'version: ${{ inputs.version }}'
       shell: bash
 branding:
-  icon: activity
-  color: white
+  icon: terminal
+  color: gray-dark

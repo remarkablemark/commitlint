@@ -1,15 +1,15 @@
-# github-actions-composite-template
+# commitlint
 
-[![version](https://badgen.net/github/release/remarkablemark/github-actions-composite-template)](https://github.com/remarkablemark/github-actions-composite-template/releases)
-[![test](https://github.com/remarkablemark/github-actions-composite-template/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/github-actions-composite-template/actions/workflows/test.yml)
+[![version](https://badgen.net/github/release/remarkablemark/commitlint)](https://github.com/remarkablemark/commitlint/releases)
+[![test](https://github.com/remarkablemark/commitlint/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/commitlint/actions/workflows/test.yml)
 
-:gear: GitHub Actions Composite Template. Inspired by [remarkablemark/hello-world-composite-action](https://github.com/remarkablemark/hello-world-composite-action).
+:notebook: [Lint commit messages](https://commitlint.js.org/) with GitHub Actions.
 
 ## Quick Start
 
 ```yaml
-- name: GitHub Actions Composite Template
-  uses: remarkablemark/github-actions-composite-template@v1
+- name: Commitlint
+  uses: remarkablemark/commitlint@v1
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ See [action.yml](action.yml)
 
 ```yaml
 steps:
-  - uses: remarkablemark/github-actions-composite-template@v1
+  - uses: remarkablemark/commitlint@v1
 ```
 
 ## Inputs
@@ -30,7 +30,7 @@ steps:
 **Optional**: The version. Defaults to `1.2.3`:
 
 ```yaml
-- uses: remarkablemark/github-actions-composite-template@v1
+- uses: remarkablemark/commitlint@v1
   with:
     version: 1.2.3
 ```
