@@ -6,6 +6,9 @@ inputs:
   from:
     description: Lower end of the commit range to lint
     default: HEAD~1
+  version:
+    description: Version of @commitlint/cli
+    default: latest
 
 runs:
   using: composite
@@ -13,7 +16,7 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        command -v commitlint || npm install --global commitlint
+        command -v commitlint || npm install --global commitlint@{{ inputs.version }}
         commitlint --version
 
     - name: Check config
