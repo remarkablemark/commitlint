@@ -1,16 +1,46 @@
 name: commitlint
 description: Lint commit messages with GitHub Actions.
 author: remarkablemark
+
 inputs:
-  version:
-    description: Description
-    default: 1.2.3
+  from:
+    description: Lower end of the commit range to lint
+    default: HEAD~1
+
 runs:
   using: composite
   steps:
-    - run: |
-        echo 'version: ${{ inputs.version }}'
+    - name: Install commitlint
       shell: bash
+      run: |
+        command -v commitlint || npm install --global commitlint
+        commitlint --version
+
+    - name: Check config
+      shell: bash
+      run: |
+        CONFIG=$(commitlint --print-config --no-color)
+
+        RULES_LENGTH=$(node << EOF
+          const config = $CONFIG;
+          console.log(Object.keys(config.rules).length);
+        EOF)
+
+        if [[ $RULES_LENGTH == 0 ]]; then
+          npm install --global @commitlint/config-conventional
+          echo '{"extends":["@commitlint/config-conventional"]}' > .commitlintrc.json
+        fi
+
+    - name: Run commitlint
+      shell: bash
+      run: commitlint --from=${{ inputs.from }}
+
+    - name: Cleanup
+      shell: bash
+      run: |
+        npm uninstall --global commitlint @commitlint/config-conventional
+        git reset --hard && git clean -d --force
+
 branding:
   icon: terminal
   color: gray-dark
