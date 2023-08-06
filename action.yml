@@ -1,0 +1,16 @@
+name: github-actions-composite-template
+description: GitHub Actions Composite Template
+author: remarkablemark
+inputs:
+  version:
+    description: Description
+    default: 1.2.3
+runs:
+  using: composite
+  steps:
+    - run: |
+        echo 'version: ${{ inputs.version }}'
+      shell: bash
+branding:
+  icon: activity
+  color: white
