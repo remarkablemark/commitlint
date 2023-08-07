@@ -31,3 +31,27 @@ jobs:
         uses: ./
         with:
           version: 17.6.7
+
+      - name: Create `package.json` and `.commitlintrc.json`
+        run: |
+          cat <<'EOF' > package.json
+          {
+            "dependencies": {
+              "@commitlint/cli": "latest",
+              "@commitlint/config-conventional": "latest"
+            }
+          }
+          EOF
+
+          cat <<'EOF' > .commitlintrc.json
+          {
+            "extends": ["@commitlint/config-conventional"],
+            "rules": {
+              "body-max-line-length": [1, "always", 100],
+              "footer-max-line-length": [1, "always", 100]
+            }
+          }
+          EOF
+
+      - name: Run action with `package.json` and `.commitlintrc.json`
+        uses: ./
