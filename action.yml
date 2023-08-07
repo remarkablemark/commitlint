@@ -21,7 +21,7 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        command -v commitlint || npm install --global commitlint@${{ inputs.version }}
+        command -v commitlint || npm install --silent --global commitlint@${{ inputs.version }}
         commitlint --version
 
     - name: Check config
@@ -29,13 +29,13 @@ runs:
       run: |
         CONFIG=$(commitlint --print-config --no-color)
 
-        RULES_LENGTH=$(node << EOF
+        RULES_LENGTH=$(node <<EOF
           const config = $CONFIG;
           console.log(Object.keys(config.rules).length);
         EOF)
 
         if [[ $RULES_LENGTH == 0 ]]; then
-          npm install --global ${{ inputs.config }}
+          npm install --silent --global ${{ inputs.config }}
           echo '{"extends":["${{ inputs.config }}"]}' > .commitlintrc.json
         fi
 
@@ -46,7 +46,7 @@ runs:
     - name: Cleanup
       shell: bash
       run: |
-        npm uninstall --global commitlint @commitlint/config-conventional
+        npm uninstall --silent --global commitlint @commitlint/config-conventional
         git reset --hard && git clean -d --force
 
 branding:
