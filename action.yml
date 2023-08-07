@@ -1,4 +1,4 @@
-name: commit-lint
+name: lintcommit
 description: Lint commit messages with GitHub Actions.
 author: remarkablemark
 
