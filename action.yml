@@ -36,7 +36,7 @@ runs:
         )
 
         if [[ $RULES_LENGTH == 0 ]]; then
-          npm install --silent --global ${{ inputs.config }}
+          npm install --silent --no-save ${{ inputs.config }}
           echo '{"extends":["${{ inputs.config }}"]}' > .commitlintrc.json
         fi
 
@@ -47,7 +47,7 @@ runs:
     - name: Cleanup
       shell: bash
       run: |
-        npm uninstall --silent --global commitlint @commitlint/config-conventional
+        npm uninstall --silent --global commitlint
         git reset --hard && git clean -d --force
 
 branding:
