@@ -41,7 +41,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/commitlint@v1
   with:
-    config: @commitlint/config-angular
+    config: '@commitlint/config-angular'
 ```
 
 ### `from`
