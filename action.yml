@@ -5,7 +5,7 @@ author: remarkablemark
 inputs:
   config:
     description: Config to enforce conventional commits
-    default: @commitlint/config-conventional
+    default: '@commitlint/config-conventional'
 
   from:
     description: Lower end of the commit range to lint
