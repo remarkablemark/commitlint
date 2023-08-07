@@ -30,9 +30,10 @@ runs:
         CONFIG=$(commitlint --print-config --no-color)
 
         RULES_LENGTH=$(node <<EOF
-          const config = $CONFIG;
-          console.log(Object.keys(config.rules).length);
-        EOF)
+        const config = $CONFIG;
+        console.log(Object.keys(config.rules).length);
+        EOF
+        )
 
         if [[ $RULES_LENGTH == 0 ]]; then
           npm install --silent --global ${{ inputs.config }}
