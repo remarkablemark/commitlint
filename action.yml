@@ -30,14 +30,22 @@ runs:
         CONFIG=$(commitlint --print-config --no-color)
 
         RULES_LENGTH=$(node <<EOF
-        const config = $CONFIG;
-        console.log(Object.keys(config.rules).length);
+          const config = $CONFIG;
+          console.log(Object.keys(config.rules).length);
         EOF
         )
 
         if [[ $RULES_LENGTH == 0 ]]; then
           npm install --silent --no-save ${{ inputs.config }}
-          echo '{"extends":["${{ inputs.config }}"],"rules":{"body-max-line-length":[0,"always",100]}}' > .commitlintrc.json
+          cat <<'EOF' > .commitlintrc.json
+          {
+            "extends": ["${{ inputs.config }}"],
+            "rules": {
+              "body-max-line-length": [1, "always", 100],
+              "footer-max-line-length": [1, "always", 100]
+            }
+          }
+        EOF
         fi
 
     - name: Run commitlint
