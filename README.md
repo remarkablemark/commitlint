@@ -8,8 +8,18 @@
 ## Quick Start
 
 ```yaml
-- name: Commitlint
-  uses: remarkablemark/commitlint@v1
+name: commitlint
+on: push
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Commitlint
+        uses: remarkablemark/commitlint@v1
 ```
 
 ## Usage
@@ -19,20 +29,39 @@ See [action.yml](action.yml)
 **Basic:**
 
 ```yaml
-steps:
-  - uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v1
 ```
 
 ## Inputs
 
-### `version`
+### `config`
 
-**Optional**: The version. Defaults to `1.2.3`:
+**Optional**: The config to enforce conventional commits. Defaults to [`@commitlint/config-conventional`](https://www.npmjs.com/package/@commitlint/config-conventional):
 
 ```yaml
 - uses: remarkablemark/commitlint@v1
   with:
-    version: 1.2.3
+    config: '@commitlint/config-angular'
+```
+
+### `from`
+
+**Optional**: The lower end of the commit range to lint. Defaults to `HEAD~1`:
+
+```yaml
+- uses: remarkablemark/commitlint@v1
+  with:
+    from: HEAD~
+```
+
+### `version`
+
+**Optional**: The version of [`@commitlint/cli`](https://www.npmjs.com/package/@commitlint/cli). Defaults to `latest`:
+
+```yaml
+- uses: remarkablemark/commitlint@v1
+  with:
+    version: 17.6.7
 ```
 
 ## Contributions

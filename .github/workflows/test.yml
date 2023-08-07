@@ -3,15 +3,56 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Run action
         uses: ./
 
-      - name: Run action with version
+      - name: Run action with input `config`
         uses: ./
         with:
-          version: 2.3.4
+          config: '@commitlint/config-angular'
+
+      - name: Run action with input `from`
+        uses: ./
+        with:
+          from: HEAD~
+
+      - name: Run action with input `version`
+        uses: ./
+        with:
+          version: 17.6.7
+
+      - name: Create `package.json` and `.commitlintrc.json`
+        shell: bash
+        run: |
+          cat <<EOF > package.json
+          {
+            "dependencies": {
+              "@commitlint/cli": "latest",
+              "@commitlint/config-conventional": "latest"
+            }
+          }
+          EOF
+
+          cat <<EOF > .commitlintrc.json
+          {
+            "extends": ["@commitlint/config-conventional"],
+            "rules": {
+              "body-max-line-length": [1, "always", 100],
+              "footer-max-line-length": [1, "always", 100]
+            }
+          }
+          EOF
+
+      - name: Run action with `package.json` and `.commitlintrc.json`
+        uses: ./
