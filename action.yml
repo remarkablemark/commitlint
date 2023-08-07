@@ -21,12 +21,17 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        command -v commitlint || npm install --silent --global commitlint@${{ inputs.version }}
+        npm install --silent --global commitlint@${{ inputs.version }}
         commitlint --version
 
-    - name: Check config
+    - name: Get config
       shell: bash
       run: |
+        if [[ grep --quiet '"@commitlint/' package.json ]]; then
+          npm install --silent
+          exit 0
+        fi
+
         CONFIG=$(commitlint --print-config --no-color)
 
         RULES_LENGTH=$(node <<EOF
