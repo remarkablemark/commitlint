@@ -61,7 +61,8 @@ runs:
       shell: bash
       run: |
         npm uninstall --silent --global commitlint
-        git reset --hard && git clean -d --force
+        git reset --hard 1> /dev/null
+        git clean -d --force 1> /dev/null
 
 branding:
   icon: terminal
