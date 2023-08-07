@@ -20,7 +20,7 @@ jobs:
       - name: Run action with input `config`
         uses: ./
         with:
-          config: '@commitlint/config-angular'
+          config: commitlint-config-jira
 
       - name: Run action with input `from`
         uses: ./
