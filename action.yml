@@ -23,7 +23,7 @@ runs:
       run: |
         npm install --silent --global commitlint@${{ inputs.version }}
 
-        if [[ ${{ runner.debug }} == 1 ]]; then
+        if [[ '${{ runner.debug }}' == 1 ]]; then
           commitlint --version
         fi
 
