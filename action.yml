@@ -22,7 +22,10 @@ runs:
       shell: bash
       run: |
         npm install --silent --global commitlint@${{ inputs.version }}
-        commitlint --version
+
+        if [[ ${{ runner.debug }} == 1 ]]; then
+          commitlint --version
+        fi
 
     - name: Get config
       shell: bash
