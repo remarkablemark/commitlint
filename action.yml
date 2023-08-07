@@ -37,7 +37,7 @@ runs:
 
         if [[ $RULES_LENGTH == 0 ]]; then
           npm install --silent --no-save ${{ inputs.config }}
-          echo '{"extends":["${{ inputs.config }}"]}' > .commitlintrc.json
+          echo '{"extends":["${{ inputs.config }}"],"rules":{"body-max-line-length":[1,"always",100]}}' > .commitlintrc.json
         fi
 
     - name: Run commitlint
