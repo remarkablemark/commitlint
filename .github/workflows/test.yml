@@ -33,8 +33,9 @@ jobs:
           version: 17.6.7
 
       - name: Create `package.json` and `.commitlintrc.json`
+        shell: bash
         run: |
-          cat <<'EOF' > package.json
+          cat <<EOF > package.json
           {
             "dependencies": {
               "@commitlint/cli": "latest",
@@ -43,7 +44,7 @@ jobs:
           }
           EOF
 
-          cat <<'EOF' > .commitlintrc.json
+          cat <<EOF > .commitlintrc.json
           {
             "extends": ["@commitlint/config-conventional"],
             "rules": {
