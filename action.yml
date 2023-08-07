@@ -21,7 +21,7 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        command -v commitlint || npm install --global commitlint@{{ inputs.version }}
+        command -v commitlint || npm install --global commitlint@${{ inputs.version }}
         commitlint --version
 
     - name: Check config
