@@ -30,7 +30,7 @@ runs:
     - name: Get config
       shell: bash
       run: |
-        if [[ grep --quiet '"@commitlint/' package.json ]]; then
+        if [[ -f package.json ]] && grep --quiet '"@commitlint/' package.json; then
           npm install --silent
           exit 0
         fi
