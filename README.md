@@ -8,6 +8,7 @@
 ## Quick Start
 
 ```yaml
+# .github/workflows/commitlint.yml
 name: commitlint
 on: push
 jobs:
