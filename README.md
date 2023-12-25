@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Commitlint
@@ -63,7 +63,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/commitlint@v1
   with:
-    version: 17.6.7
+    version: 18.4.3
 ```
 
 ## Contributions
