@@ -63,7 +63,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/commitlint@v1
   with:
-    version: 18.4.3
+    version: 18.6.0
 ```
 
 ## Contributions
