@@ -30,7 +30,7 @@ jobs:
       - name: Run action with input `version`
         uses: ./
         with:
-          version: 17.6.7
+          version: 18.6.0
 
       - name: Create `package.json` and `.commitlintrc.json`
         shell: bash
