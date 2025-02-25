@@ -15,6 +15,8 @@ on: push
 jobs:
   commitlint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
