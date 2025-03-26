@@ -3,10 +3,10 @@ on: [push, pull_request]
 
 jobs:
   test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout repository
@@ -16,6 +16,11 @@ jobs:
 
       - name: Run action
         uses: ./
+
+      - name: Run action with checkout
+        uses: ./
+        with:
+          checkout: true
 
       - name: Run action with input `config`
         uses: ./
