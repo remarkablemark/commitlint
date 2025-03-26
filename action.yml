@@ -35,7 +35,7 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        npm install --silent --global commitlint@${{ inputs.version }}
+        npm install --silent --global commitlint@${{ toJSON(inputs.version) }}
 
         if [[ '${{ runner.debug }}' == 1 ]]; then
           commitlint --version
@@ -58,10 +58,10 @@ runs:
         )
 
         if [[ $RULES_LENGTH == 0 ]]; then
-          npm install --silent --no-save ${{ inputs.config }}
+          npm install --silent --no-save ${{ toJSON(inputs.config) }}
           cat <<'EOF' > .commitlintrc.json
           {
-            "extends": ["${{ inputs.config }}"],
+            "extends": [${{ toJSON(inputs.config) }}],
             "rules": {
               "body-max-line-length": [1, "always", 100],
               "footer-max-line-length": [1, "always", 100]
@@ -72,7 +72,7 @@ runs:
 
     - name: Run commitlint
       shell: bash
-      run: commitlint --from=${{ inputs.from }}
+      run: commitlint --from=${{ toJSON(inputs.from) }}
 
     - name: Cleanup
       shell: bash
