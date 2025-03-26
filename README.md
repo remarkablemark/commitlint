@@ -18,25 +18,44 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Commitlint
         uses: remarkablemark/commitlint@v1
+        with:
+          checkout: true
 ```
 
 ## Usage
 
-See [action.yml](action.yml)
-
-**Basic:**
+Validate last commit message or all commit messages in a pull request:
 
 ```yaml
 - uses: remarkablemark/commitlint@v1
+  with:
+    checkout: true
 ```
 
+See [action.yml](action.yml)
+
 ## Inputs
+
+### `checkout`
+
+**Optional**: Whether to checkout the repository:
+
+```yaml
+- uses: remarkablemark/commitlint@v1
+  with:
+    checkout: true
+```
+
+Omit this input if the repository has already been checked out with all of the history:
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+- uses: remarkablemark/commitlint@v1
+```
 
 ### `config`
 
@@ -65,7 +84,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/commitlint@v1
   with:
-    version: 19.6.0
+    version: 19.8.0
 ```
 
 ## License
