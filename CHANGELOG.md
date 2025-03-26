@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/remarkablemark/commitlint/compare/v1.0.0...v1.1.0) (2025-03-26)
+
+
+### Features
+
+* **action:** add optional input `checkout` ([684a887](https://github.com/remarkablemark/commitlint/commit/684a88725db9c8f8c4b478aaae8d1604c7f3bbe9))
+
 ## 1.0.0 (2023-08-07)
 
 
