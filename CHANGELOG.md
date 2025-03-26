@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/remarkablemark/commitlint/compare/v1.1.0...v1.1.1) (2025-03-26)
+
+
+### Bug Fixes
+
+* **action:** escape inputs to prevent expression injection ([1751d3e](https://github.com/remarkablemark/commitlint/commit/1751d3e6fbda26ff92a2a5ea884530a159e9f25e))
+
 ## [1.1.0](https://github.com/remarkablemark/commitlint/compare/v1.0.0...v1.1.0) (2025-03-26)
 
 
