@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/remarkablemark/commitlint/compare/v1.1.1...v1.1.2) (2025-08-24)
+
+
+### Miscellaneous Chores
+
+* **deps:** bump actions/checkout from 4 to 5 ([0224f12](https://github.com/remarkablemark/commitlint/commit/0224f1236a04ac43dc65dcdeae178f5472ccf368))
+
 ## [1.1.1](https://github.com/remarkablemark/commitlint/compare/v1.1.0...v1.1.1) (2025-03-26)
 
 
