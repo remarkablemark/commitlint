@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/remarkablemark/commitlint/compare/v1.1.2...v2.0.0) (2025-11-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **action:** bump `actions/checkout` from 5 to 6
+
+### Features
+
+* **action:** bump actions/checkout from 5 to 6 ([#12](https://github.com/remarkablemark/commitlint/issues/12)) ([ea1d1a5](https://github.com/remarkablemark/commitlint/commit/ea1d1a57cb1513cd2ffaf2b28da945198a0a8ecc))
+
 ## [1.1.2](https://github.com/remarkablemark/commitlint/compare/v1.1.1...v1.1.2) (2025-08-24)
 
 
