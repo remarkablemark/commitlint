@@ -19,7 +19,7 @@ jobs:
       contents: read
     steps:
       - name: Commitlint
-        uses: remarkablemark/commitlint@v1
+        uses: remarkablemark/commitlint@v2
         with:
           checkout: true
 ```
@@ -29,7 +29,7 @@ jobs:
 Validate last commit message or all commit messages in a pull request:
 
 ```yaml
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
   with:
     checkout: true
 ```
@@ -43,7 +43,7 @@ See [action.yml](action.yml)
 **Optional**: Whether to checkout the repository:
 
 ```yaml
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
   with:
     checkout: true
 ```
@@ -54,7 +54,7 @@ Omit this input if the repository has already been checked out with all of the h
 - uses: actions/checkout@v4
   with:
     fetch-depth: 0
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
 ```
 
 ### `config`
@@ -62,7 +62,7 @@ Omit this input if the repository has already been checked out with all of the h
 **Optional**: The config to enforce conventional commits. Defaults to [`@commitlint/config-conventional`](https://www.npmjs.com/package/@commitlint/config-conventional):
 
 ```yaml
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
   with:
     config: '@commitlint/config-angular'
 ```
@@ -72,7 +72,7 @@ Omit this input if the repository has already been checked out with all of the h
 **Optional**: The lower end of the commit range to lint. Defaults to `HEAD~1`:
 
 ```yaml
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
   with:
     from: HEAD~
 ```
@@ -82,7 +82,7 @@ Omit this input if the repository has already been checked out with all of the h
 **Optional**: The version of [`@commitlint/cli`](https://www.npmjs.com/package/@commitlint/cli). Defaults to `latest`:
 
 ```yaml
-- uses: remarkablemark/commitlint@v1
+- uses: remarkablemark/commitlint@v2
   with:
     version: 19.8.0
 ```
