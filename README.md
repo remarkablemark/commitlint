@@ -79,12 +79,12 @@ Omit this input if the repository has already been checked out with all of the h
 
 ### `version`
 
-**Optional**: The version of [`@commitlint/cli`](https://www.npmjs.com/package/@commitlint/cli). Defaults to `latest`:
+**Optional**: The version of [`@commitlint/cli`](https://www.npmjs.com/package/@commitlint/cli). Defaults to `19.8.1`:
 
 ```yaml
 - uses: remarkablemark/commitlint@v2
   with:
-    version: 19.8.0
+    version: 19.8.1
 ```
 
 ## License

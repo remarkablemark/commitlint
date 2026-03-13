@@ -21,7 +21,7 @@ inputs:
   version:
     description: Version of @commitlint/cli
     required: false
-    default: latest
+    default: 19.8.1
 
 runs:
   using: composite
