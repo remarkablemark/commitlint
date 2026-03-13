@@ -35,7 +35,8 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        npm install --silent --global commitlint@${{ toJSON(inputs.version) }}
+        # https://github.com/tinylibs/tinyexec/issues/90
+        npm install --silent --global commitlint@${{ toJSON(inputs.version) }} tinyexec@1.0.2
 
         if [[ '${{ runner.debug }}' == 1 ]]; then
           commitlint --version
