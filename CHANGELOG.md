@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.1](https://github.com/remarkablemark/commitlint/compare/v2.0.0...v2.0.1) (2026-06-19)
+
+
+### Bug Fixes
+
+* **action:** update npm install to use `--ignore-scripts` flag ([#19](https://github.com/remarkablemark/commitlint/issues/19)) ([442070a](https://github.com/remarkablemark/commitlint/commit/442070a86bc02af4e1c089329316d131d3dac97e))
+
+
+### Build System
+
+* **deps:** bump actions/checkout from 6 to 7 ([#17](https://github.com/remarkablemark/commitlint/issues/17)) ([82b45be](https://github.com/remarkablemark/commitlint/commit/82b45bec048e144a04f5cc37278a09d6c446f0d9))
+
 ## [2.0.0](https://github.com/remarkablemark/commitlint/compare/v1.1.2...v2.0.0) (2025-11-21)
 
 
