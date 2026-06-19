@@ -35,7 +35,7 @@ runs:
     - name: Install commitlint
       shell: bash
       run: |
-        npm install --silent --global commitlint@${{ toJSON(inputs.version) }}
+        npm install --ignore-scripts --silent --global commitlint@${{ toJSON(inputs.version) }}
 
         if [[ '${{ runner.debug }}' == 1 ]]; then
           commitlint --version
@@ -45,7 +45,7 @@ runs:
       shell: bash
       run: |
         if [[ -f package.json ]] && grep --quiet '"@commitlint/' package.json; then
-          npm install --silent
+          npm install --ignore-scripts --silent
           exit 0
         fi
 
@@ -58,7 +58,7 @@ runs:
         )
 
         if [[ $RULES_LENGTH == 0 ]]; then
-          npm install --silent --no-save ${{ toJSON(inputs.config) }}
+          npm install --ignore-scripts --silent --no-save ${{ toJSON(inputs.config) }}
           cat <<'EOF' > .commitlintrc.json
           {
             "extends": [${{ toJSON(inputs.config) }}],
