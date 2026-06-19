@@ -84,7 +84,7 @@ Omit this input if the repository has already been checked out with all of the h
 ```yaml
 - uses: remarkablemark/commitlint@v2
   with:
-    version: 19.8.0
+    version: 21.0.0
 ```
 
 ## License
